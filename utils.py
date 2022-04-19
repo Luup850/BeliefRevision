@@ -9,6 +9,11 @@ def get_literals(clause):
     return clause
 
 def pl_resolution(kb, a):
+    """
+    Input: Kb - Knowledge base or Belief base, a - question.
+    Output: True or False, based on if the question is true or false with the given knowledge.
+    The function uses a brute force resolution method to proove if the question is true or false.
+    """
     clauses = kb
     clauses.append(str(a))
 
