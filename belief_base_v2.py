@@ -20,7 +20,7 @@ class BeliefBase:
             print("Solving issue by revision...")
 
             # Get all clauses that causes contradictions with the given query.
-            list_of_clauses_to_remove = copy.deepcopy(revision(self.list_of_clauses, query))
+            list_of_clauses_to_remove = revision(self, query)
             self._contract(list_of_clauses_to_remove)
             self._expand(query)
     
@@ -45,18 +45,25 @@ class BeliefBase:
             del self.list_of_clauses[c]
     
     def debug_print(self):
+        output = ""
         for c in self.list_of_clauses:
             for l in c.list_of_literals:
-                print(l.value)
+                output += " " + l.value
+        print(output)
 
 
 bb = BeliefBase()
 bb.tell("(A & B)")
 bb.tell("C")
+bb.tell("D")
+#print(bb.ask("(A & B)"))
+print("----------")
 bb.debug_print()
-bb.tell("~C")
-#bb._contract("C")
-print("Im an idiot!")
+print("----------")
+bb.tell("~B & E")
+#print(bb.ask("C"))
+#print("Im an idiot!")
+print("----------")
 bb.debug_print()
 #s = Clause("G | D", 0)
 #print(bb.ask("C | A"))
