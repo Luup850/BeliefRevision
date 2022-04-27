@@ -33,6 +33,7 @@ class Clause:
         """
         self.list_of_literals = []
         self.order = copy.copy(order)
+
         if(isString):
             new_clause = copy.copy(clause)
             new_clause = new_clause.replace(" ", "")
@@ -52,7 +53,6 @@ class Clause:
         for l in sorted_list:
             sorted_list_str += l.value
         return sorted_list_str
-        #return ''.join(map(str, sorted(self.list_of_literals)))
     
     # Used for debug purposes.
     def debug_print(self, res_ret=False):
@@ -132,9 +132,7 @@ def pl_resolution2(kb_input, a):
                             if (str(Not(li.value)) == lj.value):
                                 copy_of_ci = copy.deepcopy(ci)
                                 copy_of_cj = copy.deepcopy(cj)
-                                #copy_of_ci.list_of_literals.remove(li)
                                 del copy_of_ci.list_of_literals[k]
-                                #copy_of_cj.list_of_literals.remove(lj)
                                 del copy_of_cj.list_of_literals[l]
 
                                 # If ci and cj are empty, we have a contradiction.
@@ -167,37 +165,18 @@ def revision(kb_input, a):
 
     The function uses a brute force revision method to proove if the question is true or false.
     """
-    #kb_org = copy.deepcopy(kb_input)
     counter = 0
     clauses_to_remove = []
 
-    # While this gives a contradiction, kb still contains a troublesome clause.
-    # Basically a brute force approach.
     while True:
         counter = counter + 1
         kb = copy.deepcopy(kb_input)
-        
         kb.list_of_clauses = sorted(kb.list_of_clauses)
-        #kb.sort(key=lambda x: x.order)
-        #for c in kb:
-        #        c.debug_print()
         clauses_to_remove = binary_counter(counter)
-        #print("[DEBUG]:", clauses_to_remove)
+
         for c in clauses_to_remove:
-            #print("Removed clause: ", kb[c].debug_print())
-            #print(type(kb[c]))
             kb.list_of_clauses.pop(c)
-            #print("[{1}]This was popped: {0}".format(kb.list_of_clauses.pop(c).list_of_literals[0].value, counter))
+
 
         if (not pl_resolution2(kb.list_of_clauses, Not(a))):
-            #print_stuff = ""
-            #for c in kb.list_of_clauses:
-            #    print_stuff += c.debug_print(True)
-            #print(print_stuff)
             return clauses_to_remove
-
-
-    #print("Stuff to remove: ", clauses_to_remove)
-    #return clauses_to_remove
-
-    
