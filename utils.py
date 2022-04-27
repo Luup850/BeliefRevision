@@ -16,9 +16,10 @@ def binary_counter(n):
     return output
 
 class Clause:
-    # String format
-    #list_of_literals = []
-    def __init__(self, clause, order, isString=True):
+    """
+    @param: test
+    """
+    def __init__(self, clause : str, order : int, isString=True):
         self.list_of_literals = []
         self.order = copy.copy(order)
         if(isString):
