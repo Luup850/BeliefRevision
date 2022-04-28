@@ -6,7 +6,7 @@
 # =============================================================================
 import os
 
-from belief_base_v2 import BeliefBase
+from belief_base import BeliefBase
 
 # =============================================================================
 #                       FUNCTIONS
