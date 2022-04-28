@@ -1,4 +1,4 @@
-from belief_base_v2 import *
+from belief_base import *
 from utils import *
 from sympy.logic.boolalg import And, Not, Or, Xor
 import copy
