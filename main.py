@@ -70,14 +70,15 @@ if __name__ == '__main__':
     print("\n~~~~ BELIEF REVISION ENGINE ~~~~")
     print("\nWelcome to ""The Belief Revision Engine""!!\n")
     #print("\n")
-    print("\nPlease, pay attention to the User's Guide:")
+    print("\nPlease pay attention to the user guide:")
     print("\n   • Start each sentence with either ASK or TELL followed by a space.")
     print("\n   • Use ASK to ask a question")
     print("\n   • Use TELL to tell new information")
     print("\n   • Use BELIEF to see the current belief base")
     print("\n   • All letters can be used as literals except: [E, S, Q]")
     print("\n   • Use Logical Expressions like: & | ~  << >> ")
-    print("\n   • You are allowed to use brakets ()")
+    print("\n   • A Bi-implication has to be added as two combined implications (e.g. (A>>B)&(B>>A) for (A<>B))")
+    print("\n   • You are allowed to use brackets ()")
     print("\n   • Type EXIT to Exit\n")
     
     # Display MAIN MENU
