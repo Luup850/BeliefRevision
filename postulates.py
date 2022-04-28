@@ -10,8 +10,11 @@ print(base.list_of_clauses[1].list_of_literals[0].value)
 
 
 def succeed(base, query):
+    set1 = []
     base.tell(query)
-    if(base.ask(query)):
+    for i in range(len(base.list_of_clauses)):
+        set1.append(base.list_of_clauses[i].list_of_literals[0].value)
+    if(query in set1):
         print('Succeed succesful')
         return True
     return False
@@ -58,11 +61,14 @@ def extensionality(base, query1, query2):
         temp = copy.deepcopy(base)
         base.tell(query1)
         temp.tell(query2)
+
         if (base.__eq__(temp)):
             print('Extensionality succesful')
             return True
+
     else: print('Queries are not equivalent')
     return False
+
 
 
 def consistency(base, query):
