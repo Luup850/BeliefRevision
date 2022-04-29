@@ -50,7 +50,7 @@ class BeliefBase:
                 output += l.value + " | "
             output = output[:-3]
             output += " ) & ( "
-        output = str(boolalg.to_cnf(output[:-5]))
+        output = str(boolalg.to_cnf(output[:-5], simplify=True))
         print(output)
 
 
