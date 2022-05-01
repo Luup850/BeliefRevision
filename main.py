@@ -23,7 +23,7 @@ def main_menu():
 
     choice = 0
     while True : 
-        inp=input("\nInsert here:")
+        inp=input("\nInsert here: ")
         inp = inp.strip()
         temp = inp.split(" ")
         sent = " ".join(temp[1:])
@@ -75,7 +75,7 @@ if __name__ == '__main__':
     print("\n   • Use ASK to ask a question")
     print("\n   • Use TELL to tell new information")
     print("\n   • Use BELIEF to see the current belief base")
-    print("\n   • All letters can be used as literals except: [E, S, Q]")
+    print("\n   • All letters can be used as literals except: [E, S, Q, O]")
     print("\n   • Use Logical Expressions like: & | ~  << >> ")
     print("\n   • A Bi-implication has to be added as two combined implications (e.g. (A>>B)&(B>>A) for (A<>B))")
     print("\n   • You are allowed to use brackets ()")
