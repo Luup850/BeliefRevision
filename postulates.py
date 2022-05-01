@@ -71,14 +71,26 @@ def extensionality(base, query1, query2):
 
 
 
-def consistency(base, query):
-    
+def closure(base, query):
+    temp = copy.deepcopy(base)
+    set1 = []
+    set2 = []
+    base.tell(query)
+    for i in range(len(base.list_of_clauses)):
+        set1.append(base.list_of_clauses[i].list_of_literals[0].value)
+
+    for i in range(len(temp.list_of_clauses)):
+        set2.append(temp.list_of_clauses[i].list_of_literals[0].value)
+
+    if(query in set1):
+        if(a in set2 for a in set2):
+            print('Closure succesful')
+            return True
     return False
 
 
-print("test")
 succeed(base, "C")
 vacuity(base, "C")
 extensionality(base, "C", "C")
 inclusion(base, "C")
-#print(base.list_of_clauses[1].list_of_literals[0].value)
+closure(base, "C")
