@@ -88,7 +88,25 @@ def closure(base, query):
             return True
     return False
 
+def consistency(base, query):
+    temp = copy.deepcopy(base)
+    base.tell(query)
+    set1 = []
+    set2 = []
+    for i in range(len(base.list_of_clauses)):
+        set1.append(base.list_of_clauses[i].list_of_literals[0].value)
 
+    for i in range(len(temp.list_of_clauses)):
+        set2.append(temp.list_of_clauses[i].list_of_literals[0].value)
+
+    if(query in set1):
+        if(a in set2 for a in set2):
+            print('Consistency succesful')
+            return True
+    return False
+
+
+print("Consistency check with '~A': {0}".format(consistency(base, "~A")))
 succeed(base, "C")
 vacuity(base, "C")
 extensionality(base, "C", "C")
