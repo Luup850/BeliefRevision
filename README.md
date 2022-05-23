@@ -20,7 +20,7 @@ To check the postulates, execute the following command:
     ```$ python postulates.py```
 
 ## Authors
-- Cem Rizalar s?????[@cemrizalar1](https://github.com/cemrizalar1)
+- Cem Rizalar s212383[@cemrizalar1](https://github.com/cemrizalar1)
 - Dani Schober s212599[@DaniSchober](https://github.com/DaniSchober)
-- Maria s??????[@mariamsmr](https://github.com/mariamsmr)
+- Maria Carmela Mas Marhuenda s212488[@mariamsmr](https://github.com/mariamsmr)
 - Marcus Christiansen s213424 [@Luup850](https://github.com/Luup850)
